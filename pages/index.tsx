@@ -23,9 +23,10 @@ const App = () => {
     // const [videoSrc, setVideoSrc] = useState(`${VIDEO_SERVER}/eee05274-513d-e8c2-1bca-45e29fb2b573.mp4.mp4`)
     const [videoSrc, setVideoSrc] = useState(``)
     const [msg, setMsg] = useState('')
-    const videoRef = useRef();
+    const videoRef = useRef<HTMLVideoElement>();
     useEffect(() => {
-        videoRef.current?.load();
+        if (videoRef.current)
+            videoRef.current.load();
     }, [videoSrc]);
 
 
