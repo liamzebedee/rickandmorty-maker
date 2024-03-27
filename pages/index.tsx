@@ -14,8 +14,21 @@ Morty: is it the $LYRA v2 token?
 Rick: even better Morty. it's $HAM`
 
 
-const VIDEO_SERVER = `http://0.0.0.0:9000`
-const GENERATION_SERVER = 'http://localhost:8512'
+let VIDEO_SERVER = `http://0.0.0.0:9000`
+let GENERATION_SERVER = 'http://0.0.0.0:8512';
+
+// tailscale serve --bg --set-path /video-server http://127.0.0.1:9000 
+// tailscale serve --bg --set-path /generation-server http://127.0.0.1:8512
+// tailscale funnel 443 on 
+// if (process.env.NODE_ENV == 'production') {
+if(true) {
+    VIDEO_SERVER = `https://acmay.tail989c9.ts.net/video-server`
+    // GENERATION_SERVER = 'https://acmay.tail989c9.ts.net/generation-server'
+    GENERATION_SERVER = `https://spicy-bats-learn.loca.lt`
+}
+
+console.log(`VIDEO_SERVER: ${VIDEO_SERVER}`)
+console.log(`GENERATION_SERVER: ${GENERATION_SERVER}`)
 
 const App = () => {
     const editorRef = useRef(null);
@@ -102,6 +115,7 @@ const App = () => {
 
         // disable minimap
         editor.updateOptions({ 
+            wordWrap: 'on',
             minimap: { enabled: false },
             // lineNumbersMinChars: 1,
             // lineNumbers: "off",
@@ -176,6 +190,7 @@ const App = () => {
                         defaultValue={sampleScript}
                         theme='myCoolTheme'
                         onMount={handleEditorDidMount}
+                        
                     />
 
                     <button className="btn btn-large" onClick={clickGenerate} disabled={generateStatus == 'generating'}>
