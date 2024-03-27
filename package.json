@@ -24,6 +24,7 @@
     "truncate-eth-address": "^1.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.7"
   },
