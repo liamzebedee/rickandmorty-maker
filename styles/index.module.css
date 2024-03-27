@@ -1,0 +1,54 @@
+.index {
+    
+}
+
+.index header {
+    /* all items aligned horizontally, text verical aligned with image */
+    display: flex;
+    align-items: center;    
+    margin-bottom: 1rem;
+
+    /* style with box shadow overlay */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero.jpg');
+    color: white;
+}
+
+.index header > * {
+    padding-right: 1rem;
+}
+
+.index main {
+    padding: 1rem;
+}
+
+.fname {
+    margin: 0;
+    padding: 1rem;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+    /* gradient background complement to coral */
+    background-color: #222;
+    color: coral;
+}
+
+.editor {
+    border: 1px solid black;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.preview {
+    padding: 1rem;
+}
+
+.twoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.preview video {
+    width: 100%;
+    /* height: 100%; */
+}
